@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+import 'package:almang/colors.dart';
+import 'package:almang/home.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+
+
+class Pagename extends StatelessWidget{
+  const Pagename({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: AppColors.primaryColor,
+        appBar: AppBar(
+          title: Text('안정상비약 정보 검색',
+            style: TextStyle(
+              color: AppColors.secondaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),),
+          centerTitle: true,
+          backgroundColor: AppColors.primaryColor,
+          elevation: 0,
+        ),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context); // Navigate to the previous screen when container is tapped
+                  },
+                  child: Container(
+                    width: 240,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: AppColors.thirdColor, // Round shape edges
+                      border: Border.all( // Border
+                        color: AppColors.secondaryColor, // Border color
+                        width: 3,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Add SVG image
+                        SvgPicture.asset(
+                          'assets/back_icon.svg', // Replace 'image.svg' with your SVG file path
+                          width: 35,
+                          height: 35,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => homeScreen()),
+                    );
+                  },
+                  child: Container(
+                    width: 240,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: AppColors.thirdColor, // Round shape edges
+                      border: Border.all( // Border
+                        color: AppColors.secondaryColor, // Border color
+                        width: 3,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Add SVG image
+                        SvgPicture.asset(
+                          'assets/home_icon.svg', // Replace 'image.svg' with your SVG file path
+                          width: 35,
+                          height: 35,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
